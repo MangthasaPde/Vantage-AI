@@ -1,0 +1,666 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #000;
+  line-height: 1.6;
+  background: #fff;
+  scroll-behavior: smooth;
+}
+
+/* Page Fade In Animation */
+body {
+  animation: pageFadeIn 1s ease-out;
+}
+
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e5e5e5;
+  z-index: 1000;
+  padding: 20px 0;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.logo svg {
+  width: 24px;
+  height: 24px;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.nav a:hover {
+  opacity: 0.7;
+}
+
+/* Hero Section */
+.hero {
+  padding: 120px 0 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #000;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  color: #000;
+  text-decoration: underline;
+}
+
+.btn-secondary:hover {
+  opacity: 0.7;
+}
+
+.hero-image {
+  position: relative;
+}
+
+.logo-container {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animated-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  animation: logoFadeIn 1.5s ease-out;
+}
+
+.logo-svg {
+  width: 120px;
+  height: 120px;
+  animation: logoGentleFloat 4s ease-in-out infinite;
+}
+
+.logo-path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: logoDraw 1.5s ease-out forwards;
+}
+
+.logo-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+  letter-spacing: 2px;
+  animation: textFadeIn 1.5s ease-out 0.5s both;
+}
+
+@keyframes logoFadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoGentleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes logoDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes textFadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(10px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+.location-tag {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Journey Section */
+.journey {
+  padding: 100px 0;
+  background: #fafafa;
+}
+
+.journey h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.journey-intro {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 60px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.feature-icon {
+  margin-bottom: 20px;
+}
+
+.feature-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.journey .btn {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Get Started Section */
+.get-started {
+  padding: 100px 0;
+}
+
+.get-started .container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.content-left h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.content-left h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.principle h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.principle p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Sidebar Form */
+.sidebar-form {
+  position: sticky;
+  top: 120px;
+}
+
+.form-container {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-logo {
+  margin-bottom: 20px;
+}
+
+.form-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+.form-container h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.form-container p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input {
+  padding: 15px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: #fff;
+}
+
+.contact-form input:focus {
+  outline: none;
+  border-color: #000;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-top: 2px;
+}
+
+.checkbox-container a {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 80px 0 40px;
+}
+
+.footer .container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-logo svg {
+  width: 32px;
+  height: 32px;
+  stroke: #fff;
+}
+
+.footer-left p {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.footer-middle {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.footer-quote p {
+  margin-bottom: 10px;
+}
+
+.footer-quote p:last-child {
+  font-style: italic;
+  color: #ccc;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.link-column h5 {
+  font-weight: 600;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.link-column a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color 0.2s;
+}
+
+.link-column a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  border-top: 1px solid #333;
+  margin-top: 40px;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-legal a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-legal a:hover {
+  color: #fff;
+}
+
+/* Chat UI - Updated for new design */
+.chat-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 1100;
+  transition: all 0.3s;
+}
+
+.chat-button:hover {
+  background: #333;
+  transform: scale(1.05);
+}
+
+.chat-button svg {
+  fill: #fff;
+  width: 24px;
+  height: 24px;
+}
+
+.chat-window {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 400px;
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  border-left: 1px solid #e5e5e5;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.chat-header {
+  position: relative;
+  padding: 20px;
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+
+.chat-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-input {
+  display: flex;
+  padding: 20px;
+  border-top: 1px solid #e5e5e5;
+  background: #fff;
+  gap: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  background: #fff;
+  color: #000;
+  font-size: 1rem;
+}
+
+.chat-input input:focus {
+  outline: none;
+  border-color: #000;
+}
+
+.chat-input button {
+  padding: 12px 20px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: #000;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 18px 18px 4px 18px;
+  margin: 4px 0;
+  max-width: 80%;
+  font-size: 0.95rem;
+}
+
+.message.bot {
+  align-self: flex-start;
+  background: #f5f5f5;
+  color: #000;
+  padding: 12px 16px;
+  border-radius: 18px 18px 18px 4px;
+  margin: 4px 0;
+  max-width: 80%;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .nav {
+    display: none;
+  }
+  
+  .get-started .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .chat-window {
+    width: 100%;
+  }
+} 
