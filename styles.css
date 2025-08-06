@@ -1,12 +1,13 @@
-/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+html,
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   color: #000;
   line-height: 1.6;
   background: #fff;
@@ -80,6 +81,70 @@ body {
 }
 
 .nav a:hover {
+  opacity: 0.7;
+}
+
+/* Mobile Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #000;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 84px;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e5e5e5;
+  padding: 20px;
+  z-index: 999;
+}
+
+.mobile-nav.active {
+  display: block;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 15px 0;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  border-bottom: 1px solid #f0f0f0;
+  transition: opacity 0.2s;
+}
+
+.mobile-nav a:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav a:hover {
   opacity: 0.7;
 }
 
@@ -191,32 +256,39 @@ body {
 }
 
 @keyframes logoFadeIn {
-  0% { 
-    opacity: 0; 
+  0% {
+    opacity: 0;
     transform: translateY(20px);
   }
-  100% { 
-    opacity: 1; 
+  100% {
+    opacity: 1;
     transform: translateY(0);
   }
 }
 
 @keyframes logoGentleFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 @keyframes logoDraw {
-  to { stroke-dashoffset: 0; }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes textFadeIn {
-  0% { 
-    opacity: 0; 
+  0% {
+    opacity: 0;
     transform: translateY(10px);
   }
-  100% { 
-    opacity: 1; 
+  100% {
+    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -498,7 +570,7 @@ body {
   color: #fff;
 }
 
-/* Chat UI - Updated for new design */
+/* Chat UI */
 .chat-button {
   position: fixed;
   bottom: 30px;
@@ -629,38 +701,138 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Navigation */
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hero Section - Mobile Layout */
+  .hero {
+    padding: 100px 0 60px;
+    min-height: auto;
+  }
+
   .hero .container {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
+  /* Move hero image to top on mobile */
+  .hero-image {
+    order: -1;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
   .hero-content h1 {
     font-size: 2.5rem;
   }
-  
-  .nav {
-    display: none;
+
+  .logo-container {
+    height: 250px;
   }
-  
+
+  .logo-svg {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Other sections */
   .get-started .container {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .principles-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .footer .container {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .footer-links {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
   .chat-window {
     width: 100%;
   }
-} 
+
+  /* Form adjustments */
+  .form-container {
+    padding: 30px 20px;
+  }
+
+  /* Journey section mobile */
+  .journey {
+    padding: 80px 0;
+  }
+
+  .journey h2 {
+    font-size: 2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .feature-card {
+    padding: 30px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.85rem;
+  }
+
+  .hero-buttons {
+    gap: 15px;
+  }
+
+  .logo-container {
+    height: 200px;
+  }
+
+  .logo-svg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+}
